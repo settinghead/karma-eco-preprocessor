@@ -5,8 +5,6 @@ var createEcoPreprocessor = function(args, config, logger, helper) {
 
   var log = logger.create('preprocessor.eco');
   var defaultOptions = {
-    bare: true,
-    sourceMap: false
   };
   var options = helper.merge(defaultOptions, args.options || {}, config.options || {});
 
@@ -32,7 +30,11 @@ var createEcoPreprocessor = function(args, config, logger, helper) {
       return;
     }
 
-    done(result.js || result)
+    var r = result.js || result;
+    var hash = path.relative(config.baseTemplatePath, file.path).replace(/\.js$/, '').replace(/\.jst$/, '');
+    if(config.enableJSTGlobalVariable)
+      r = 'window.JST=window.JST||{}; window.JST[\''+hash+'\'] = ' + r + ';';
+    done(r);
   };
 };
 
