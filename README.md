@@ -1,6 +1,6 @@
 # karma-eco-preprocessor
 
-> Preprocessor to compile ECO Templates on the fly.
+> Preprocessor to compile ECO Templates. Source code derived from [Karma HTML2JS Preprocessor](https://github.com/karma-runner/karma-html2js-preprocessor)
 
 ## Installation
 
@@ -32,8 +32,8 @@ module.exports = function(config) {
     ecoPreprocessor: {
       // options passed to the eco compiler
       options: {
-        bare: true,
-        sourceMap: false
+        baseTemplatePath: path.join(__dirname, 'app/assets/templates'),
+        enableJSTGlobalVariable: true
       },
       // transforming the filenames
       transformPath: function(path) {
@@ -44,7 +44,6 @@ module.exports = function(config) {
 };
 ```
 
-If you set the `sourceMap` eco compiler option to `true` then the generated source map will be inlined as a data-uri.
 
 ----
 
