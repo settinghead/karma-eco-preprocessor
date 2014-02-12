@@ -1,6 +1,6 @@
 {
   "name": "karma-eco-preprocessor",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A Karma plugin. Compile ECO templates on the fly.",
   "main": "index.js",
   "scripts": {
