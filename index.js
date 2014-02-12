@@ -31,8 +31,8 @@ var createEcoPreprocessor = function(args, config, logger, helper) {
     }
 
     var r = result.js || result;
-    var hash = path.relative(config.baseTemplatePath, file.path).replace(/\.js$/, '').replace(/\.jst$/, '');
-    if(config.enableJSTGlobalVariable)
+    var hash = path.relative(options.baseTemplatePath, file.path).replace(/\.js$/, '').replace(/\.jst$/, '');
+    if(options.enableJSTGlobalVariable)
       r = 'window.JST=window.JST||{}; window.JST[\''+hash+'\'] = ' + r + ';';
     done(r);
   };
