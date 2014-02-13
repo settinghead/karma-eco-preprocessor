@@ -23,6 +23,7 @@ npm install karma-eco-preprocessor --save-dev
 Following code shows the default configuration...
 ```js
 // karma.conf.js
+var path = require('path');
 module.exports = function(config) {
   config.set({
     preprocessors: {
